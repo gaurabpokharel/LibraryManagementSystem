@@ -86,7 +86,7 @@ public class AddUserForm extends JFrame{
             	   Class.forName("com.mysql.jdbc.Driver");
             	   String mysqlUrl = "jdbc:mysql://localhost:3306/libraryDB";
                    Connection con = DriverManager.getConnection(mysqlUrl, "root", "");
-                   PreparedStatement ps = con.prepareStatement("insert into user values(?,?,?,?,?,?,?)");
+                   PreparedStatement ps = con.prepareStatement("insert into user(first_name,last_name,email,password,gender,phone_number,address) values(?,?,?,?,?,?,?)");
                    ps.setString(1, firstName);
                    ps.setString(2, lastName);
                    ps.setString(3, email);
