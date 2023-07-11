@@ -82,6 +82,21 @@ public class AddUserForm extends JFrame{
                }
                String phoneNumber = phoneNumberField.getText();
                String address= addressField.getText();
+               
+               if (firstName.isEmpty() || lastName.isEmpty() || email.isEmpty() || password.isEmpty() || gender.isEmpty() || phoneNumber.isEmpty() || address.isEmpty()) {
+                   JOptionPane.showMessageDialog(null, "Please fill in all fields.", "Error", JOptionPane.ERROR_MESSAGE);
+                   return;
+               }
+               String emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
+               if (!email.matches(emailRegex)) {
+                   JOptionPane.showMessageDialog(null, "Please enter a valid email address.", "Error", JOptionPane.ERROR_MESSAGE);
+                   return;
+               }
+               String passwordRegex = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$";
+               if (!password.matches(passwordRegex)) {
+                   JOptionPane.showMessageDialog(null, "Please enter a valid password.You must contain minimum eight characters, at least one letter and one number.", "Error", JOptionPane.ERROR_MESSAGE);
+                   return;
+               }
                try {
             	   Class.forName("com.mysql.jdbc.Driver");
             	   String mysqlUrl = "jdbc:mysql://localhost:3306/libraryDB";

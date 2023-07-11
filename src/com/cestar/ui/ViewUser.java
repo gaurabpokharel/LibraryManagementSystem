@@ -147,7 +147,7 @@ public class ViewUser extends JFrame {
     }
 
     private void deleteSelectedRows() {
-    	if (selectedRows.isEmpty()) {
+        if (selectedRows.isEmpty()) {
             JOptionPane.showMessageDialog(null, "No rows selected.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
@@ -166,19 +166,20 @@ public class ViewUser extends JFrame {
             for (int i = selectedRows.size() - 1; i >= 0; i--) {
                 int rowIndex = selectedRows.get(i);
                 String flag = model.getValueAt(rowIndex, 0).toString();
-                if(flag.equalsIgnoreCase("true")) {
-                String email = model.getValueAt(rowIndex, 3).toString();
-                System.out.println(email);
-                statement = connection.prepareStatement(deleteQuery);
-                statement.setString(1, email);
-                System.out.println(email);
-                }
-                statement.executeUpdate();
+                if (flag.equalsIgnoreCase("true")) {
+                    String email = model.getValueAt(rowIndex, 3).toString();
+                    statement = connection.prepareStatement(deleteQuery);
+                    statement.setString(1, email);
+                    statement.executeUpdate();
 
-                // Remove the row from the table model
-                model.removeRow(rowIndex);
+                    // Remove the row from the table model
+                    model.removeRow(rowIndex);
+                }
             }
             selectedRows.clear();
+
+            // Refresh the table to reflect the remaining data
+            model.fireTableDataChanged();
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
