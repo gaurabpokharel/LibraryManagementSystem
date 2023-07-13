@@ -23,5 +23,10 @@ CREATE TABLE IF NOT EXISTS books (
   isbn VARCHAR(255)
 );
 
-
-
+CREATE TABLE IF NOT EXISTS user_book(
+    user_book_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(255),
+    isbn VARCHAR(255),
+    lentDate VARCHAR(255) DEFAULT NULL ,
+    returnDate VARCHAR(255) DEFAULT NULL
+);

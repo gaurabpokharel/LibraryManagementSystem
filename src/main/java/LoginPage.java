@@ -64,7 +64,6 @@ class LoginPageForm extends JFrame implements ActionListener {
 
         // Add the main panel to the content pane
         getContentPane().add(mainPanel, BorderLayout.CENTER);
-
         pack();
         setLocationRelativeTo(null);
     }
