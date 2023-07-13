@@ -13,5 +13,15 @@ CREATE TABLE IF NOT EXISTS user (
   address VARCHAR(255)
 );
 
+CREATE TABLE IF NOT EXISTS books (
+  book_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(255),
+  author VARCHAR(255),
+  genre VARCHAR(255),
+  year VARCHAR(255),
+  publisher VARCHAR(255),
+  isbn VARCHAR(255)
+);
+
 
 

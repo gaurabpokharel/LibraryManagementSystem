@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 public class IndexPage extends JFrame {
 
     private JButton addBookButton;
+    private JButton viewBookButton;
     private JButton addUserButton;
     private JButton viewUserButton;
 
@@ -21,8 +22,10 @@ public class IndexPage extends JFrame {
 
         // Create buttons for adding a new book and user
         addBookButton = new JButton("Add New Book");
+        viewBookButton = new JButton("View Books");
         addUserButton = new JButton("Add New User");
         viewUserButton = new JButton("View User");
+        
 
         // Add action listeners to the buttons
         addBookButton.addActionListener(new ActionListener() {
@@ -32,6 +35,16 @@ public class IndexPage extends JFrame {
                 // Add your logic here
                 AddBookForm addBookForm = new AddBookForm();
                 addBookForm.setVisible(true);
+            }
+        });
+        
+        viewBookButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Handle add new book button click event
+                // Add your logic here
+                ViewBook viewBook = new ViewBook();
+                viewBook.setVisible(true);
             }
         });
 
@@ -59,6 +72,7 @@ public class IndexPage extends JFrame {
         // Create a panel to hold the buttons
         JPanel buttonPanel = new JPanel();
         buttonPanel.add(addBookButton);
+        buttonPanel.add(viewBookButton);
         buttonPanel.add(addUserButton);
         buttonPanel.add(viewUserButton);
 
