@@ -89,7 +89,6 @@ public class ReturnBook extends JFrame {
 
                     // Set the IndexPage frame as visible
                     indexPage.setVisible(true);
-
                     // Dispose the current ViewUser frame
                     dispose();
                 }
