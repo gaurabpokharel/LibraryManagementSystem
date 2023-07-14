@@ -46,9 +46,9 @@ public class AssignBook extends JFrame {
                 try {
                     JDBConnection jdbConnection = new JDBConnection();
                     Connection con = jdbConnection.setUpConnection();
-                    PreparedStatement ps = con.prepareStatement("insert into user_book(email,isbn,lentDate) values(?,?,now())");
-                    ps.setString(1, bookISBN);
-                    ps.setString(2, userEmail);
+                    PreparedStatement ps = con.prepareStatement("insert into user_book(email,isbn,lent_date) values(?,?,now())");
+                    ps.setString(1, userEmail);
+                    ps.setString(2, bookISBN);
 
                     ps.executeUpdate();
                     con.close();
