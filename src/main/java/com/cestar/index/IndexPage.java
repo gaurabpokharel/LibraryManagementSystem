@@ -72,6 +72,7 @@ public class IndexPage extends JFrame {
     // Utility method to create a styled button
     private JButton createButton(String text) {
         JButton button = new JButton(text);
+
         button.setFont(new Font("Arial", Font.PLAIN, 14));
         button.setPreferredSize(new Dimension(180, 60));
         return button;
@@ -120,3 +121,4 @@ public class IndexPage extends JFrame {
         JOptionPane.showMessageDialog(this, message, "Error", JOptionPane.ERROR_MESSAGE);
     }
 }
+

@@ -16,7 +16,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="FSDTProjectLibraryManagement" options="--add-modules java.desktop,java.sql,java.base" />
+      <module name="FSDTProjectLibraryManagement" options="--add-modules java.desktop,java.sql" />
       <module name="LibraryManagementProject" options="--add-modules java.sql,java.base,java.desktop" />
     </option>
   </component>
