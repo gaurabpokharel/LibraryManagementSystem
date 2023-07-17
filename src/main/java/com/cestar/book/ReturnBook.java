@@ -1,12 +1,10 @@
 package com.cestar.book;
-
 import com.cestar.index.IndexPage;
 import com.cestar.jdbc.JDBConnection;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
-import javax.swing.text.View;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -33,7 +31,7 @@ public class ReturnBook extends JFrame {
             ResultSet resultSet = statement.executeQuery(selectDataQuery);
 
             // Create the table model with column names
-             tableModel = new DefaultTableModel() {
+            tableModel = new DefaultTableModel() {
                 @Override
                 public boolean isCellEditable(int row, int column) {
                     // Only the last column (Return) is editable
@@ -62,7 +60,7 @@ public class ReturnBook extends JFrame {
             mainTable = new JTable(tableModel);
 
             // Set custom column width if desired
-            mainTable.getColumnModel().getColumn(0).setPreferredWidth(100);
+            mainTable.getColumnModel().getColumn(0).setPreferredWidth(200);
             mainTable.getColumnModel().getColumn(1).setPreferredWidth(150);
             mainTable.getColumnModel().getColumn(2).setPreferredWidth(150);
             mainTable.getColumnModel().getColumn(3).setPreferredWidth(250);
@@ -77,8 +75,6 @@ public class ReturnBook extends JFrame {
             // Add the table to a scroll pane
             JScrollPane scrollPane = new JScrollPane(mainTable);
             getContentPane().add(scrollPane);
-            pack();
-
 
             backButton = new JButton("Back");
             backButton.addActionListener(new ActionListener() {
@@ -89,17 +85,21 @@ public class ReturnBook extends JFrame {
 
                     // Set the IndexPage frame as visible
                     indexPage.setVisible(true);
-                    // Dispose the current ViewUser frame
+                    // Dispose the current ReturnBook frame
                     dispose();
                 }
             });
             JPanel buttonPanel = new JPanel();
             buttonPanel.add(backButton);
 
-            Container container = getContentPane();
-            container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
-            container.add(scrollPane);
-            container.add(buttonPanel);
+            // Create a main panel to hold the table and button panel
+            JPanel mainPanel = new JPanel();
+            mainPanel.setLayout(new BorderLayout());
+            mainPanel.add(scrollPane, BorderLayout.CENTER);
+            mainPanel.add(buttonPanel, BorderLayout.SOUTH);
+
+            // Add the main panel to the content pane
+            getContentPane().add(mainPanel);
 
             pack();
 
@@ -136,6 +136,7 @@ public class ReturnBook extends JFrame {
             // Handle button click event
             button.addActionListener(new ActionListener() {
                 DefaultTableModel model = (DefaultTableModel) mainTable.getModel();
+
                 public void actionPerformed(ActionEvent e) {
                     int choice = JOptionPane.showConfirmDialog(null, "Are you sure you want to return the book?", "Confirmation", JOptionPane.YES_NO_OPTION);
                     if (choice == JOptionPane.YES_OPTION) {

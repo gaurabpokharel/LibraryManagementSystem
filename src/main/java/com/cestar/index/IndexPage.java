@@ -82,7 +82,6 @@ public class IndexPage extends JFrame {
     private void openAddBookForm(String username) {
         AddBookForm addBookForm = new AddBookForm(username);
         addBookForm.setVisible(true);
-        dispose();
     }
 
     private void openViewBookForm(String username) {
@@ -98,7 +97,6 @@ public class IndexPage extends JFrame {
     private void openAddUserForm(String username) {
         AddUserForm addUserForm = new AddUserForm(username);
         addUserForm.setVisible(true);
-        dispose();
     }
 
     private void openViewUserForm(String username) {
@@ -110,13 +108,11 @@ public class IndexPage extends JFrame {
     private void openAssignBookForm(String username) {
         AssignBook assignBook = new AssignBook(username);
         assignBook.setVisible(true);
-        dispose();
     }
 
     private void openReturnBookForm(String username) {
         ReturnBook returnBook = new ReturnBook(username);
         returnBook.setVisible(true);
-        dispose();
     }
 
     // Utility method to show an error dialog

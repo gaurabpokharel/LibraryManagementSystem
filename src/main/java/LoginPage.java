@@ -22,7 +22,7 @@ class LoginPageForm extends JFrame implements ActionListener {
 
     LoginPageForm() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setTitle("Login Form");
+        setTitle("Library Management System");
 
         // Create the main panel with GridBagLayout
         JPanel mainPanel = new JPanel(new GridBagLayout());
